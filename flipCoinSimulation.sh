@@ -14,11 +14,20 @@ TossCheck=$((RANDOM%2));
 	then
 		tails=$(($tails+1));
 		echo Tails;
-                break;
+               
 	else
 		heads=$(($heads+1));
 		echo Heads;
-                break;
+                
+	fi
+        if [ $tails -ge 21 ]
+	then
+		echo "Tails won by: "$(($tails-$heads));
+		break;
+	elif [ $heads -ge 21 ]
+	then
+		echo "Heads won by:" $(($heads-$tails));
+		break;
 	fi
 done
 echo "Tails count: "$tails "and Heads count :"$heads;
