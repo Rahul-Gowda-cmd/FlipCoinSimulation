@@ -20,11 +20,15 @@ TossCheck=$((RANDOM%2));
 		echo Heads;
                 
 	fi
-        if [ $tails -ge 21 ]
+
+        difft=$(($tails-$heads));
+	diffh=$(($heads-$tails));
+
+        if [ $tails -ge 21 -a $difft -ge 2 ]
 	then
 		echo "Tails won by: "$(($tails-$heads));
 		break;
-	elif [ $heads -ge 21 ]
+	elif [ $heads -ge 21 -a $difft -ge 2 ]
 	then
 		echo "Heads won by:" $(($heads-$tails));
 		break;
